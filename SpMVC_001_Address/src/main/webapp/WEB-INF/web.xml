@@ -3,9 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<!-- client 에서 POST 로 받은 데이터 중에 한글과 같은 Unicode 문자가 포함되어 있으면 encoding 을 하라 
-		Browser 에서 Server 로 데이터를 보낼때 Server 에서 Browser 가 보낸 데이터를 받을때 -->
-
+	<!-- 
+	client 에서 POST 로 받은 데이터 중에
+	한글과 같은 UniCode 문자가 포함되어 있으면 encoding 을 하라
+	Browser 에서 Server 로 데이터를 보낼때
+	Server 에서 Browser 가 보낸 데이터를 받을때
+	 -->
 	<filter>
 		<filter-name>encKor</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
@@ -24,6 +27,9 @@
 		<filter-name>encKor</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
+
+
+
 
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
