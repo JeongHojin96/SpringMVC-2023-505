@@ -1,7 +1,6 @@
 package com.callor.address.controller;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +28,9 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(String message, Model model) {
 
+		model.addAttribute("MSG",message);
 		List<AddrDto> addrList = addrService.selectAll();
 		model.addAttribute("ADDRS", addrList);
 		return "home";

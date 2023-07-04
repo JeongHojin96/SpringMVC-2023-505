@@ -1,6 +1,6 @@
 @charset "UTF-8";
 * {
-  box-sizing: border;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -22,7 +22,7 @@ body {
 }
 
 header {
-  background-color: green;
+  background-color: rgb(76, 184, 218);
   color: white;
   padding: 1.2rem;
   text-align: center;
@@ -33,7 +33,7 @@ section.main {
   flex: 1;
   margin: 3px;
   padding: 3px;
-  border: 1px solid blue;
+  border: 1px solid rgb(153, 153, 241);
   /* 
   box 범위 내에서 content 를 Scroll 하면서 보여주기 
   overflow : auto 
