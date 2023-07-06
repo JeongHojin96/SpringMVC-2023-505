@@ -53,6 +53,20 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 	
+	<!--
+	transactionManage 객체와 연계하여 Annotation 방식으로
+	transaction 을 관리 하도록 설정하겠다.
+	# 만약 transactionManager 의 id가 transactionManager 인 경우
+	[transaction-manager="transactionManager"] 속성은 생략 가능하다.
+	 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- DBMS와 연계하여 Transaction 을 자동화 시킬 객체 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="mySQL_DS"/>	
+	</bean>
+	
+	
 	<!-- 
 	mybatis 야 ...dao page 에 있는 interface 를 scan 하여
 	@Select, @Insert, @Update, @Delete 등이 있으면

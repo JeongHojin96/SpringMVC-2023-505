@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+form {
+  display: flex;
+  width: 100%;
+}
+
+h1 {
+  background-color: aqua;
+  text-align: center;
+}
+
+input {
+  margin: 8px;
+  padding: 8px;
+}
+
+div {
+  margin: 10px;
+  padding: 2px;
+}
+
+table {
+  width: 100%;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+table.list tr:hover {
+  background-color: rgb(224, 224, 255);
+  cursor: pointer;
+}
+
+table.list th,
+table.list td {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+table.list th {
+  text-shadow: 1px #ddd;
+  font-weight: bold;
+}
