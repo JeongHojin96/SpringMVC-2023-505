@@ -18,9 +18,9 @@
 	<section class="main">
 		<form class="main">
 			<input name="to_sdate" value="${TODO.to_sdate}" type="date"
-				placeholder="작성일자"> <input name="to_stime"
-				value="${TODO.to_stime}" type="time" placeholder="작성시각"> <input
-				name="to_content" placeholder="할일">
+				placeholder="작성일자"> 
+			<input name="to_stime" value="${TODO.to_stime}" type="time" placeholder="작성시각"> 
+			<input name="to_content" placeholder="할일">
 		</form>
 		<table class="list">
 			<c:if test="${empty TODOS}">
