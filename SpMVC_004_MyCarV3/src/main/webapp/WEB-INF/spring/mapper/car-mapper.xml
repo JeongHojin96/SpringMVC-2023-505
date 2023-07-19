@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- car-mapper.xml 과 dao.CarDao interface를 연동 -->
+<mapper namespace="com.callor.car.persistance.CarDao">
+
+	<select id="findTachoByCarNum">
+	select * from tbl_carmanager
+    where c_carnum = #{carnum}
+    order by c_sdate desc, c_stime desc
+    limit 1
+	</select>
+
+
+	<select id="findUserSelectLimit">
+		SELECT 
+		c_seq, c_carnum, c_qty, c_username, c_sdate, c_stime,
+		c_goal, c_edate, c_etime, c_skm, c_ekm, c_cost
+		FROM tbl_car
+		LIMIT 10
+	</select>
+	
+	
+
+	<insert id="insert">
+		insert into tbl_carmanager(
+		c_carnum, c_qty, c_username, c_sdate, c_stime, c_skm
+		) values (
+		#{c_carnum}, #{c_qty}, #{c_username}, #{c_sdate}, #{c_stime}, #{c_skm}
+		)
+	</insert>
+
+</mapper> 
