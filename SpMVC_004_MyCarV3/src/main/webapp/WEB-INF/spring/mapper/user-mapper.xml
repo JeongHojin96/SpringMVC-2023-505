@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- car-mapper.xml 과 dao.CarDao interface를 연동 -->
+<mapper namespace="com.callor.car.persistance.UserDao">
+
+	<select id="findTachoByCarNum">
+
+	</select>
+
+
+	<select id="findUserSelectLimit">
+
+	</select>
+
+
+
+	<insert id="insert">
+		insert into tbl_users(username, password, u_name, u_nickname, u_tel, u_role)
+		values(#{username}, #{password}, #{u_name}, #{u_nickname}, #{u_tel}, #{u_role})
+	</insert>
+
+	<select id="create_user_table">
+		create table if not exists tbl_users (
+		username varchar(15) primary key,
+		password varchar(225) not null,
+		u_name varchar(20) not null,
+		u_nickname varchar(20),
+		u_tel varchar(15),
+		u_role varchar(15) not null
+		)
+	</select>
+</mapper>

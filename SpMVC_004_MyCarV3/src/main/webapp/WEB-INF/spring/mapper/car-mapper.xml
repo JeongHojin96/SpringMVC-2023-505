@@ -32,4 +32,21 @@
 		)
 	</insert>
 
+	<select id="create_carm_table">
+		create table if not exists tbl_carmanager (
+			c_seq	bigint		primary key	auto_increment,
+			c_carnum	varchar(15)	not null,		
+			c_qty	varchar(10)	not null,		
+			c_username	varchar(20)	not null,		
+			c_sdate	varchar(10)	not null,		
+			c_stime	varchar(10)	not null,		
+			c_goal	varchar(30),		
+			c_edate	varchar(15),			
+			c_etime	varchar(10),			
+			c_skm	int,			
+			c_ekm	int,			
+			c_cost	int
+	    );
+	
+	</select>
 </mapper> 

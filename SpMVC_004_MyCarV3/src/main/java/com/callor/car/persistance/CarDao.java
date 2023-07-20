@@ -18,4 +18,6 @@ public interface CarDao {
 	public int insert(CarDto carDto);
 	
 	public CarDto findTachoByCarNum(String carnum);
+	
+	public void create_carm_table(String dumy);
 }

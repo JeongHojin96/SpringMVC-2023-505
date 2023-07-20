@@ -2,6 +2,7 @@ package com.callor.car.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.callor.car.model.CarDto;
@@ -31,6 +32,11 @@ public class CarServiceImplV1 implements CarService{
 	public List<CarDto> selectAll() {
 		// TODO Auto-generated method stub
 		return carDao.selectAll();
+	}
+	
+	@Autowired
+	public void create_table() {
+		carDao.create_carm_table(null);
 	}
 
 }

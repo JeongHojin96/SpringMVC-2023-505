@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  input_carnum.select();
+  input_carnum?.select();
 
   input_carnum?.addEventListener("blur", async () => {
     err_clear();
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  input_qty.addEventListener("blur", () => {
+  input_qty?.addEventListener("blur", () => {
     err_clear();
     if (!err_message(input_qty, err_qty, ERROR_MESSAGE.QTY)) {
       return false;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  btn_save.addEventListener("click", () => {
+  btn_save?.addEventListener("click", () => {
     if (
       err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM) &&
       err_message(input_qty, err_qty, ERROR_MESSAGE.QTY) &&
