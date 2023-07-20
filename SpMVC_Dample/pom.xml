@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.callor</groupId>
-	<artifactId>car</artifactId>
-	<name>SpMVC_004_MyCarV2</name>
+	<artifactId>dample</artifactId>
+	<name>SpMVC_Dample</name>
 	<packaging>war</packaging>
-	<version>2.0.0-BUILD-SNAPSHOT</version>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.2.24.RELEASE</org.springframework-version>
