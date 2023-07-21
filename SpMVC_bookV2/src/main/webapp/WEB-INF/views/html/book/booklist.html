@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <table class="main" method="GET" th:action="@{/booklist}">
+      <tr>
+        <th>도서코드</th>
+        <th>도서명</th>
+        <th>저자</th>
+        <th>출판사</th>
+        <th>구입연도</th>
+        <th>구입가격</th>
+        <th>대여가격</th>
+      </tr>
+      <tr th:each="DTO, i : ${BOOK_LIST}">
+        <td th:text="${DTO.b_code}">도서코드</td>
+        <td th:text="${DTO.b_name}">도서명</td>
+        <td th:text="${DTO.b_auther}">저자</td>
+        <td th:text="${DTO.b_comp}">출판사</td>
+        <td th:text="${DTO.b_year}">구입연도</td>
+        <td th:text="${DTO.b_iprice}">구입가격</td>
+        <td th:text="${DTO.b_rprice}">대여가격</td>
+      </tr>
+    </table>
+  </section>
+</html>

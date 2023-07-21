@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.book.persistance.UsersDao">
+
+	<insert id="insert">
+	(u_code, u_name, u_tel, u_addr)
+	values
+	(#{u_cod}e, #{u_name}, #{u_tel}, #{u_addr})
+	</insert>
+	
+	<update id="update">
+	update tbl_users set
+	u_name = ${none_} + #{u_name},
+	u_tel = #{u_tel},
+	u_addr =  #{u_addr}
+	where u_code = #{u_code}
+	</update>
+
+	<update id="secession">
+	update tbl_users set
+	u_name = #{u_name},
+	u_tel = #{u_tel},
+	u_addr =  #{u_addr}
+	where u_code = #{u_code}
+	</update>
+</mapper>
+  
+  

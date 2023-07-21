@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html
+  lang="ko"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <header class="main" th:fragment="header">
+    <h1>빛고을</h1>
+    <p>Book Rent Management System 2023</p>
+  </header>
+
+  <nav class="main" th:fragment="nav">
+    <ul>
+      <li class="home">Home</li>
+      <li class="booklist">Booklist</li>
+      <li class="userlist">Userlist</li>  
+      </th:block>
+    </ul>
+  </nav>
+
+  <footer th:fragment="footer">
+    <address>CopyRight &copy; callor@callor.com All Right Reserved</address>
+  </footer>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOOKWORD</title>
+    <link th:href="@{/static/css/main.css?}" rel="stylesheet" />
+    <link th:href="@{/static/css/insert.css?}" rel="stylesheet" />
+    <script th:inline="javascript">
+      var rootPath = /*[[@{/}]]*/
+    </script>
+    <script th:src="@{/static/js/main_insert_validation.js}"></script>
+    <script th:src="@{/static/js/main_insert.js}"></script>
+    <script th:src="@{/static/js/main_nav.js}"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header th:replace="~{include :: header}" />
+    <header th:replace="~{include :: nav}" />
+    <section class="main" layout:fragment="content">
+      <h1>Body Main</h1>
+    </section>
+    <header th:replace="~{include :: footer}" />
+  </body>
+</html>

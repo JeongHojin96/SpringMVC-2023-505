@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.book.persistance.BooksDao">
+	
+	<select id="findTachoByCode">
+	select * from tbl_books
+	where b_code = #{b_code}
+	order by b_iprice, b_rprice
+	limit 1;
+	</select>
+	
+	
+	<insert id="insert">
+		insert into tbl_books
+		(b_code, b_name, b_auther, b_comp, b_year, b_iprice, b_rprice)
+		values
+		(#{b_code}, #{b_name}, #{b_auther}, #{b_comp}, #{b_year}, #{b_iprice},
+		#{b_rprice})
+	</insert>
+
+	<select id="findByNameAuther">
+		select * from tbl_books
+		where b_name Like CONCAT('%',
+		#{name}, '%') OR b_auther Like CONCAT('%', #{name}, '%')
+	</select>
+
+	<update id="update">
+		update tbl_books set
+		b_name = #{b_name},
+		b_auther = #{b_auther},
+		b_comp = #{b_comp},
+		b_year = #{b_year},
+		b_iprice = #{b_iprice},
+		b_rprice = #{b_rprice}
+		where b_code = #{b_code}
+	</update>
+
+	<update id="secession">
+		update tbl_books set
+		b_iprice = 0,
+		b_rprice = 0
+		where b_code = #{b_code}
+	</update>
+
+</mapper>
+  
+  

@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+form.main {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form.main div {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+form.main input {
+  padding: 5px;
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+form.main div.input {
+  display: flex;
+  flex-direction: column;
+}
+
+form.main div.error {
+  display: none;
+  color: red;
+}
+
+form.main div.error.on {
+  display: inline-block;
+}
+
+form.user {
+  width: 50%;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+form.user div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+form.user input,
+form.user button {
+  width: 80%;
+  margin: 3px;
+}
+
+form.user input {
+  padding: 8px;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form.user button {
+  flex: 1;
+  color: white;
+  background-color: rgb(157, 157, 255);
+  outline: 0;
+  border: 0;
+  padding: 12px 16px;
+  border-radius: 5px;
+}
+
+form.user a {
+  text-decoration: none;
+  color: blue;
+  font-size: 0.8rem;
+}
+
+form.user div.error {
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+}

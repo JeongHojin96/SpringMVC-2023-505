@@ -58,12 +58,12 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String insert(Model model, HttpSession httpSession) {
+		UserDto userDto = (UserDto) httpSession.getAttribute("USER");
 		
 		// Session 으로 부터 USER Attribute 를 getter 하고 
 		// 그 데이터를 UserDto type 으로 변환하여 userDto 객체에 저장
 		// 로그인이 되어 있으면 userDto 는 실제 로그인한 user 의 정보
 		// 로그인이 되어 있지않으면 userDto 는 null 값이다.
-		UserDto userDto = (UserDto) httpSession.getAttribute("USER");
 		if(userDto == null) {
 			return "redirect:/user/login?error=LOGIN";
 		}
