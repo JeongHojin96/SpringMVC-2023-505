@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.rent.dao.RentBookDao">
+
+	<select id="create_rent_book_table">
+		create table if not exists tbl_rentbook (
+		rent_seq bigint NOT NULL PRIMARY KEY auto_increment,
+		rent_date varchar(10) NOT NULL,
+		rent_return_date varchar(10) NOT NULL,
+		rent_bcode varchar(13) NOT NULL,
+		rent_mcode varchar(6) NOT NULL,
+		rent_return_yn varchar(1),
+		rent_point int,
+		rent_price int
+		)
+	</select>
+
+</mapper>

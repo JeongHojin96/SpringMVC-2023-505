@@ -11,6 +11,7 @@ create table tbl_books (
 	b_rprice	int	not null
 );
 
+
 create table tbl_users (
 u_code	varchar(6)	not null	primary key,
 u_name	varchar(125)	not null,
@@ -32,3 +33,28 @@ desc tbl_books;
 desc tbl_users;
 desc tbl_rent_book;
 
+insert into tbl_books
+  		(b_code, b_name, b_auther, b_comp, b_year, b_iprice, b_rprice)
+  		values
+        ('A00005', 'ㅇ', '책1', 'ㅇ',1,1,1);
+        
+        select * from tbl_books
+		where b_auther Like '%책%';
+
+commit;
+
+insert into tbl_users
+( u_code,
+u_name,
+u_tel,
+u_addr)
+values
+('a00001','d','d','d');
+
+update tbl_users set
+u_name = ,
+u_tel = 'dd',
+u_addr = 'dd'
+where u_code = 'a00001';
+
+select * from tbl_users;

@@ -10,5 +10,37 @@
 </head>
 <body>
 	<h1>도서대여 처리</h1>
+	<table class="member">
+		<tr>
+			<th>SEQ</th>
+			
+			<th>도서명</th>
+			<th>출판사</th>
+			
+			<th>회원코드</th>
+			<th>회원명</th>
+			<th>전화번호</th>
+			
+			<th>대출일</th>
+			<th>반납예정일</th>
+			<th>도서반납여부</th>
+			<th>대여금액</th>
+			<th>포인트</th>
+		</tr>
+		
+		<c:forEach items="${RENT}" var="RENT">
+		<tr>
+			<td>${RENT.rent_seq}</td>
+			
+		</tr>
+		</c:forEach>
+		
+	</table>
+	<div class="member button">
+		<a href="${rootPath}">처음으로</a>
+		<a href="${rootPath}/rent/insert">도서대여</a>
+		<a href="${rootPath}/rent/return">도서반납</a>
+	</div>
+	
 </body>
 </html>
