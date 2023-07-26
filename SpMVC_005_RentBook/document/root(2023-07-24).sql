@@ -42,7 +42,9 @@ commit;
 
 select * from tbl_members;
 
-create table tbl_rentbook (
+drop table tbl_rent_table;
+
+create table tbl_rent_book (
 	rent_seq	bigint	NOT NULL	PRIMARY KEY	auto_increment,
 	rent_date	varchar(10)	NOT NULL,		
 	rent_return_date	varchar(10)	NOT NULL,		
@@ -53,3 +55,20 @@ create table tbl_rentbook (
 	rent_price	int			
 );
 
+select * from tbl_members;
+
+select count(*) from tbl_books;
+select * from tbl_books limit 10;
+
+select count(*) from tbl_members;
+select * from tbl_members limit 10;
+
+commit;
+
+select * from tbl_rent_book;
+
+select * from tbl_rent_book R
+left join tbl_members M
+	on R.rent_mcode = M.m_code
+left join tbl_books B
+	on R.rent_bcode = B.b_code;
