@@ -53,8 +53,8 @@
 			</c:if>		
 					
 			<c:if test="${PAGINATION.firstPageNum != PAGINATION.pageNum }">
-				<li><a href="${rootPath}/book?page=1">처음</a></li>
-				<li><a href="${rootPath}/book?page=${PAGINATION.pageNum -1}">&lt;</a></li>
+				<li><a href="${rootPath}/book?page=1&search=${SEARCH}">처음</a></li>
+				<li><a href="${rootPath}/book?page=${PAGINATION.pageNum -1}&search=${SEARCH}">&lt;</a></li>
 			</c:if>
 			
 			<c:forEach begin="${PAGINATION.firstPageNum}"
@@ -64,8 +64,8 @@
 			</c:forEach>
 			
 			<c:if test="${PAGINATION.lastPageNum != PAGINATION.pageNum}">
-				<li><a href="${rootPath}/book?page=${PAGINATION.pageNum +1}">&gt;</a></li>
-				<li><a href="${rootPath}/book?page=${PAGINATION.finalPageNum}">마지막</a></li>
+				<li><a href="${rootPath}/book?page=${PAGINATION.pageNum +1}&search=${SEARCH}">&gt;</a></li>
+				<li><a href="${rootPath}/book?page=${PAGINATION.finalPageNum}&search=${SEARCH}">마지막</a></li>
 			</c:if>
 			<c:if test="${PAGINATION.lastPageNum == PAGINATION.pageNum}">
 				<li>&gt;</li>
@@ -75,7 +75,6 @@
 		
 		<div class = "list book search">
 			<form>
-				<input name="page" hidden = "hidden"  value="${PAGINATION.pageNum}"/>
 				<input name="search" placeholder="검색어 입력 후 Enter"/>
 				<button>검색</button>
 			</form>
