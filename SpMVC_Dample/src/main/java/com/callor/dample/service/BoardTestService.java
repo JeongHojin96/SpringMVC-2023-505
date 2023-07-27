@@ -12,4 +12,6 @@ public interface BoardTestService {
 
 	public BoardTestDto findBySeq(String bseq);
 
+	public int update(BoardTestDto boardDto);
+
 }

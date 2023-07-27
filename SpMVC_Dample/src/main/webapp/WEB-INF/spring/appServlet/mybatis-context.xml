@@ -30,7 +30,7 @@
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
-	<mybatis-spring:scan base-package="com.callor.daple.persistance"/>
+	<mybatis-spring:scan base-package="com.callor.dample.persistance"/>
 	
 	<tx:annotation-driven 
 		transaction-manager="transactionManager"/>

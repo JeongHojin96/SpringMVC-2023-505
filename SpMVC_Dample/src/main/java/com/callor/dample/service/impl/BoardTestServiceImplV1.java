@@ -33,4 +33,10 @@ public class BoardTestServiceImplV1 implements BoardTestService {
 		return boardDao.findBySeq(bseq);
 	}
 
+	@Override
+	public int update(BoardTestDto boardDto) {
+		// TODO Auto-generated method stub
+		return boardDao.update(boardDto);
+	}
+
 }

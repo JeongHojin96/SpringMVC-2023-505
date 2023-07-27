@@ -25,17 +25,17 @@
 			<th>조회수</th>
 		</tr>
 		<c:choose>
-			<c:when test="${not empty REVIEW}">
-				<c:forEach items="${REVIEWS}" var="REVIEW">
+			<c:when test="${not empty WRITES}">
+				<c:forEach items="${WRITES}" var="WRITE">
 					<tr>
-						<td>${REVIEW.b_seq}</td>
+						<td>${WRITE.b_seq}</td>
 						<td>
-						<a href="${rootPath}/rivew/${REVIEW.b_seq}/detail">
-						${REVIEW.b_title}</a>
+						<a href="${rootPath}/review/${WRITE.b_seq}/detail">
+						${WRITE.b_title}</a>
 						</td>
-						<td>${REVIEW.b_nickname}</td>
-						<td>${REVIEW.b_date}</td>
-						<td>${REVIEW.b_viewcount}</td>
+						<td>${WRITE.b_nickname}</td>
+						<td>${WRITE.b_date}</td>
+						<td>${WRITE.b_viewcount}</td>
 					</tr>
 				</c:forEach>
 			</c:when>

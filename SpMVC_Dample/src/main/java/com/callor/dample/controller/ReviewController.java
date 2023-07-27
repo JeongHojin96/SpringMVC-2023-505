@@ -33,12 +33,12 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/write",method = RequestMethod.GET)
-	public String insert(@ModelAttribute("WRITES") BoardTestDto boardDto) {
+	public String insert(@ModelAttribute("WRITE") BoardTestDto boardDto) {
 		return "review/write";
 	}
 	
 	@RequestMapping(value = "/write",method = RequestMethod.POST)
-	public String insert(@ModelAttribute("WRITES") BoardTestDto boardDto, Model model) {
+	public String insert(@ModelAttribute("WRITE") BoardTestDto boardDto, Model model) {
 		int result = boardService.insert(boardDto);		
 		return "redirect:/review";
 	}
@@ -46,22 +46,23 @@ public class ReviewController {
 	@RequestMapping(value = "/{b_seq}/detail", method = RequestMethod.GET)
 	public String detail(@PathVariable("b_seq") String bseq, Model model) {
 		BoardTestDto boardDto = boardService.findBySeq(bseq);
-		model.addAttribute("WRITES", boardDto);
-		return "write/detail";
+		model.addAttribute("WRITE", boardDto);
+		return "review/detail";
 	}
 	
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.GET)
 	public String update(@PathVariable("b_seq") String bseq, Model model) {
 		BoardTestDto boardDto = boardService.findBySeq(bseq);
-		model.addAttribute("WRITES", boardDto);
-		model.addAttribute("STATE", "UPDATE");
-		return "write/write";
+		model.addAttribute("WRITE", boardDto);
+		return "review/write";
 	}
+	
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.POST)
-	public String update(@PathVariable("b_seq")String bseq, @ModelAttribute("WRITES")BoardTestDto boardDto, Model model ) {
+	public String update(@PathVariable("b_seq")String bseq, @ModelAttribute("WRITE")BoardTestDto boardDto, Model model ) {
 		if(!bseq.isBlank())
-			boardDto.setB_seq(bseq);
-		
+			boardDto.setB_seq(Integer.valueOf(bseq));
+		int result = boardService.update(boardDto);
+		return "review/write";
 	}
 	
 	
