@@ -1,1 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.dample.persistance.BoardTestDao">
+	<insert id="insert" parameterType="BoardTestDto">
+		insert into tbl_boardtest (
+			b_title, b_content, b_icode,
+			b_nickname, b_password, b_ccode, b_date, b_viewcount
+		) values ( 
+			#{b_title}, #{b_content}, #{b_icode},
+			#{b_nickname}, #{b_password}, #{b_ccode}, #{b_date}, #{b_viewcount}
+		);
+	</insert>
+	
+	<update id="update" parameterType="BoardTestDto">
+		update tbl_boardtest set
+			b_title = #{b_title}, b_content = #{b_content}, b_icode  = #{b_icode},
+			b_nickname = #{b_nickname}, b_password = #{b_password}, b_ccode = #{b_ccode}, b_date = #{b_date}, b_viewcount = #{b_viewcount}
+		where b_seq = #{b_seq}
+	</update>
+	
+	<!-- 게시판 데이터 백업 -->
+	<insert id="backup" parameterType="BoardTestDto">
+		insert into tbl_backuptest (
+			b_title, b_content, b_icode,
+			b_nickname, b_password, b_ccode, b_date, b_viewcount
+		) values ( 
+			#{b_title}, #{b_content}, #{b_icode},
+			#{b_nickname}, #{b_password}, #{b_ccode}, #{b_date}, #{b_viewcount}
+		);
+	</insert>
+	
+	<delete id="delete" parameterType="BoardTestDto">
+		DELETE FROM tbl_boardtest WHERE b_seq = #{b_seq}
+	</delete>
+	
+	
+
+</mapper>

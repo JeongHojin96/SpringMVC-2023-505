@@ -18,12 +18,6 @@
 			<th>출판사</th>
 			<th>대여가격</th>
 		</tr>
-		<%
-		/*
-		
-		
-		*/
-		%>
 		<c:choose>
 			<c:when test="${not empty BOOKS}">
 				<c:forEach items="${BOOKS}" var="BOOK">

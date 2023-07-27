@@ -15,7 +15,6 @@ create table tbl_boardtest(
 
 desc tbl_boardtest;
 
-
 create table tbl_categorytest(
 c_code varchar(6) not null primary key,
 c_title varchar(125) not null
@@ -26,3 +25,10 @@ i_code varchar(6) not null primary key,
 i_url varchar(125) not null
 );
 
+insert into tbl_boardtest (
+b_seq, b_title, b_content, b_icode,
+b_nickname, b_password, b_ccode, b_date, b_viewcount
+) values ( 
+#{b_seq}, #{b_title}, #{b_content}, #{b_icode},
+#{b_nickname}, #{b_password}, #{b_ccode}, #{b_date}, #{b_viewcount}
+);
