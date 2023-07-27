@@ -11,8 +11,7 @@ import com.callor.rent.service.RentBookService;
 @Service
 public class RentBookServiceImplV1 implements RentBookService {
 
-	protected RentBookDao rentBookDao;
-
+	protected final RentBookDao rentBookDao;
 	public RentBookServiceImplV1(RentBookDao rentBookDao) {
 		this.rentBookDao = rentBookDao;
 	}

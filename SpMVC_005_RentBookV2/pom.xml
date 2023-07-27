@@ -13,17 +13,12 @@
 		<artifactId>master</artifactId>
 		<version>1.0.0</version>
 	</parent>
+
 	<properties>
 		<tiles-version>3.0.8</tiles-version>
 	</properties>
 
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-			<version>${tiles-version}</version>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
 		<dependency>
@@ -32,6 +27,13 @@
 			<version>${tiles-version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles-version}</version>
+		</dependency>
+		
 	</dependencies>
 
 </project>

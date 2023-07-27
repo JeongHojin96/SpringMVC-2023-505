@@ -98,15 +98,22 @@ public class MemberController {
 		// String.format("redirect:/member/%s/detail", bcode)
 		return "redirect:/member/{b_code}/detail";
 	}
+
 	
 	@ResponseBody
-	@RequestMapping(value = "/name/search", method=RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public List<MemberDto> name_search (
-			@RequestParam("m_name") String mname) {
-		List<MemberDto> memberList = memberService.findByMName(mname);
+	@RequestMapping(
+			value="/name/search",
+			method=RequestMethod.GET,
+			produces = "application/json;charset=UTF-8")
+	public List<MemberDto> name_search(
+			@RequestParam("m_name")  String mName
+			) {
+		
+		List<MemberDto> memberList = memberService.findByMName(mName);
 		return memberList;
+		
 	}
-	
+
 	
 	/*
 	 * 

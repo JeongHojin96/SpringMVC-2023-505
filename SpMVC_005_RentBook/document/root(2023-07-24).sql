@@ -72,3 +72,5 @@ left join tbl_members M
 	on R.rent_mcode = M.m_code
 left join tbl_books B
 	on R.rent_bcode = B.b_code;
+    
+SELECT * FROM tbl_books LIMIT 10 OFFSET 10

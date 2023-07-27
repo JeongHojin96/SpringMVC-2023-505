@@ -98,9 +98,9 @@ public class MemberServiceImplV1 implements MemberService{
 	}
 
 	@Override
-	public List<MemberDto> findByMName(String mname) {
+	public List<MemberDto> findByMName(String mName) {
 		// TODO Auto-generated method stub
-		return memberDao.findByName(mname);
+		return memberDao.findByName(mName);
 	}
 	
 }

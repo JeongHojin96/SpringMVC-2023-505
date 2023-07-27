@@ -49,7 +49,6 @@ import lombok.extern.slf4j.Slf4j;
 public class RentController {
 	
 	protected final RentBookService rentService;
-	
 	public RentController(RentBookService rentService) {
 		this.rentService = rentService;
 	}
@@ -61,7 +60,7 @@ public class RentController {
 	@RequestMapping(value={"/",""},method=RequestMethod.GET)
 	public String home(Model model) {
 		List<RentBookVO> rBooks = rentService.selectAll();
-		model.addAttribute("RBOOKS", rBooks);
+		model.addAttribute("RBOOKS",rBooks);
 		return "rent/home";
 	}
 	
@@ -100,6 +99,7 @@ public class RentController {
 		log.debug("전달된 데이터 {}",rentBookVO);
 		
 		int result = rentService.insert(rentBookVO);
+
 	
 		/*
 		 * SessionAttributes 에 보관중인 객체(데이터)를 모두 사용한 후에는

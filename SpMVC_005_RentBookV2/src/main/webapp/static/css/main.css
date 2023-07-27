@@ -15,7 +15,6 @@ html {
   width: 100vw;
   height: 100vh;
 }
-
 body {
   width: 100%;
   height: 100%;
@@ -25,15 +24,15 @@ body {
 
 header {
   width: 100%;
-  background-color: rgb(97, 8, 70);
-  color: white;
+  background-color: #000;
+  color: #fff;
   text-align: center;
   padding: 1.2rem;
 }
 
 nav {
   width: 100%;
-  background-color: #7540bb;
+  background-color: #777;
   color: #fff;
 }
 
@@ -43,6 +42,7 @@ nav ul {
 }
 
 nav li {
+  /* top, left and right, bottom */
   margin: 0 0.5rem 0.5rem;
   margin: 0.5rem;
   margin-top: 0;
@@ -54,7 +54,7 @@ nav li {
 }
 
 nav li:hover {
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid brown;
 }
 
 nav li.rent,
@@ -65,6 +65,8 @@ nav li.login {
 
 section.main {
   flex: 1;
+  /* 화면크기보다 내의 컨턴츠가 크면 Scroll Bar를 만들어어 보여라 */
+  overflow: auto;
 }
 
 footer {
