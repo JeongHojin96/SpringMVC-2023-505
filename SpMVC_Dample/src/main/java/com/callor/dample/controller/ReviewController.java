@@ -1,5 +1,7 @@
 package com.callor.dample.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -54,6 +56,7 @@ public class ReviewController {
 	public String update(@PathVariable("b_seq") String bseq, Model model) {
 		BoardTestDto boardDto = boardService.findBySeq(bseq);
 		model.addAttribute("WRITE", boardDto);
+		model.addAttribute("STATE", "UPDATE");
 		return "review/write";
 	}
 	
@@ -65,6 +68,18 @@ public class ReviewController {
 		return "review/write";
 	}
 	
+	@ModelAttribute("WRITE")
+	public BoardTestDto boardDto() {
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String strDate = dateFormat.format(date);
+		
+		BoardTestDto boardDto = BoardTestDto.builder()
+				.b_date(strDate)
+				.build();
+		
+		return boardDto;
+	}
 	
 	
 	
