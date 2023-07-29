@@ -1,11 +1,11 @@
-package com.callor.bbs.service;
+package com.callor.dample.service;
 
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.callor.bbs.models.FileDto;
+import com.callor.dample.model.BoardTestDto;
 
 /*
  * File Upload 를 수행할 Service 클래스 의 prototype
@@ -36,9 +36,10 @@ public interface FileService {
 	public String 
 		fileUp(MultipartFile file) throws Exception;
 	
-	public List<FileDto> 
+	public List<BoardTestDto> 
 		filesUp(MultipartHttpServletRequest files) throws Exception;
 	
 	public String delete(String fileName);
+
 
 }

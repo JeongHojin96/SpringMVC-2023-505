@@ -18,7 +18,6 @@ public class BoardTestDto {
 	private long b_seq;// long
 	private String b_title;// varchar(125)
 	private String b_content;// varchar(1000)
-	private String b_icode;// varchar(125)
 	private String b_nickname;// varchar(125)
 	private String b_password;// varchar(125)
 	private String b_ccode;// varchar(6)

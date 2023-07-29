@@ -13,8 +13,6 @@
 	<h1>게시글 ${STATE == 'UPDATE' ? '수정' : '작성' }</h1>
 
 	<f:form modelAttribute="WRITE">
-
-
 		<label>게시판선택</label>
 		<select name="b_ccode">
 			<option value="B00001" selected>리뷰</option>
@@ -22,7 +20,7 @@
 			<option value="D00001">소개</option>
 			<option value="E00001">추천</option>
 		</select>
-		
+
 		<div>
 			<label>제목</label>
 			<f:input path="b_title" />
@@ -39,11 +37,18 @@
 			<label>작성자</label>
 			<f:input path="b_nickname" />
 		</div>
-		<c:if test="${STATE != 'UPDATE' }">
-			<div>
-				<label>비밀번호</label>
-				<f:input path="b_password" />
-			</div>
+		<div>
+			<label>비밀번호</label>
+			<f:input path="b_password" />
+		</div>
+		<c:if test="${MESSAGE == 'NO' }">
+			<h3>* 모든 내용을 작성해주세요.</h3>
+		</c:if>
+		<c:if test="${MESSAGE == 'NONE' }">
+			<h3>* 비밀번호를 입력해주세요.</h3>
+		</c:if>
+		<c:if test="${MESSAGE == 'PASS_WORD' }">
+			<h3>* 비밀번호가 틀렸습니다.</h3>
 		</c:if>
 		<div>
 			<button type="button" onclick="location.href='${rootPath}/'">목록으로</button>

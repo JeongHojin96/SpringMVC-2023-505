@@ -1,4 +1,4 @@
-package com.callor.bbs.service.impl;
+package com.callor.dample.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.callor.bbs.config.QualifierConfig;
-import com.callor.bbs.models.FileDto;
+import com.callor.dample.config.QualifierConfig;
+import com.callor.dample.model.BoardTestDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -99,17 +99,17 @@ public class FileServiceImplV2 extends FileServiceImplV1 {
 	}
 	
 	@Override
-	public List<FileDto> filesUp(MultipartHttpServletRequest files) throws Exception {
+	public List<BoardTestDto> filesUp(MultipartHttpServletRequest files) throws Exception {
 
 		/*
 		 * 멀티파일을 각 파일로 분리하여 fileUp() 에게 파일을 업로드하도록
 		 * 요청하고, 원본이름과 변경된 이름을 받아서 returnFiles 를 만들기
 		 */
 		List<MultipartFile> fileList = files.getFiles("b_images");
-		List<FileDto> returnFiles = new ArrayList<FileDto>();
+		List<BoardTestDto> returnFiles = new ArrayList<BoardTestDto>();
 		for(MultipartFile file : fileList) {
 			
-			FileDto fileDto = FileDto
+			BoardTestDto fileDto = BoardTestDto
 					.builder()
 					.i_originalName(file.getOriginalFilename())
 					.i_uploadName(this.fileUp(file)).build() ;

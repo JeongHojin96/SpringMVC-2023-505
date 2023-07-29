@@ -1,4 +1,4 @@
-package com.callor.dample.model;
+package com.callor.bbs.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CategoryTestDto {
-	private String c_code;	// varchar(6)
-	private String c_title;	// varchar(125)
+public class FileDto {
+	private long i_seq;//	bigint
+	private long i_bseq;//	bigint
+	private String i_originalName;//	VARCHAR(125)
+	private String i_uploadName;//	VARCHAR(255)
+
 }

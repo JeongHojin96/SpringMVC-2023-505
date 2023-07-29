@@ -14,6 +14,12 @@
 		);
 	</insert>
 	
+	<insert id="countup" parameterType="BoardTestDto">
+		update tbl_boardtest set
+			b_viewcount = b_viewcount + 1
+		where b_seq = #{b_seq}
+	</insert>
+	
 	<update id="update" parameterType="BoardTestDto">
 		update tbl_boardtest set
 			b_title = #{b_title}, b_content = #{b_content}, b_icode  = #{b_icode},
@@ -36,6 +42,14 @@
 		DELETE FROM tbl_boardtest WHERE b_seq = #{b_seq}
 	</delete>
 	
+	<insert id="insertfile" >
+		INSERT INTO tbl_boardtest
+		(i_originalName, i_uploadName)
+		<foreach collection="list" item="DTO" separator="," open="VALUES">
+			(#{DTO.i_originalName}, #{DTO.i_uploadName} )		
+		</foreach>
+	</insert>	
+		
 	
 
 </mapper>

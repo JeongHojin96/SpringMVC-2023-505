@@ -84,7 +84,6 @@ public class MemberController {
 		try {
 			int result = memberService.update(memberDto);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			// console에 Exception log 출력하기
 			e.printStackTrace();
 			

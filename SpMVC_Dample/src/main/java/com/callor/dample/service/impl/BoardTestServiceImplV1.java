@@ -23,7 +23,10 @@ public class BoardTestServiceImplV1 implements BoardTestService {
 	}
 
 	@Override
-	public int insert(BoardTestDto boardDto) {
+	public int insert(BoardTestDto boardDto) throws Exception {
+		if( boardDto.getB_title() == "" || boardDto.getB_content() == "" || boardDto.getB_nickname() == "" || boardDto.getB_password() == "") {
+			throw new Exception("NO");
+		}
 		return boardDao.insert(boardDto);
 	}
 
@@ -34,9 +37,36 @@ public class BoardTestServiceImplV1 implements BoardTestService {
 	}
 
 	@Override
-	public int update(BoardTestDto boardDto) {
-		// TODO Auto-generated method stub
+	public int update(BoardTestDto boardDto) throws Exception {
+		String getpw = boardDto.getB_password();
+		long bseq = boardDto.getB_seq();
+		
+		if (getpw == "") {
+			throw new Exception("NONE");
+		} else if(!boardDao.findPW(bseq).getB_password().equals(getpw)) {
+			throw new Exception("PASS_WORD");
+		}
 		return boardDao.update(boardDto);
+		
+	}
+
+	@Override
+	public int viewcountup(BoardTestDto boardDto) {
+		// TODO Auto-generated method stub
+		return boardDao.countup(boardDto);
+	}
+
+	@Override
+	public int delete(BoardTestDto boardDto) throws Exception {
+		String getpw = boardDto.getB_password();
+		long bseq = boardDto.getB_seq();
+		
+		if (getpw == "") {
+			throw new Exception("NONE");
+		} else if(!boardDao.findPW(bseq).getB_password().equals(getpw)) {
+			throw new Exception("PASS_WORD");
+		}
+		return boardDao.delete(boardDto);
 	}
 
 }

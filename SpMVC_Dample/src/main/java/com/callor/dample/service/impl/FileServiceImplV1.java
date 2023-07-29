@@ -1,4 +1,4 @@
-package com.callor.bbs.service.impl;
+package com.callor.dample.service.impl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.callor.bbs.config.QualifierConfig;
-import com.callor.bbs.models.FileDto;
-import com.callor.bbs.service.FileService;
+import com.callor.dample.config.QualifierConfig;
+import com.callor.dample.model.BoardTestDto;
+import com.callor.dample.service.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -61,13 +61,13 @@ public class FileServiceImplV1 implements FileService {
 	}
 
 	@Override
-	public List<FileDto> filesUp(MultipartHttpServletRequest files) throws Exception {
+	public List<BoardTestDto> filesUp(MultipartHttpServletRequest files) throws Exception {
 
 		List<MultipartFile> fileList 
 			= files.getFiles("b_image");
-		List<FileDto> returnFiles = new ArrayList<FileDto>();
+		List<BoardTestDto> returnFiles = new ArrayList<BoardTestDto>();
 		for(MultipartFile file : fileList) {
-			FileDto fileDto = new FileDto();
+			BoardTestDto fileDto = new BoardTestDto();
 			fileDto.setI_originalName(file.getOriginalFilename());
 			fileDto.setI_uploadName(this.fileUp(file));
 			returnFiles.add(fileDto);
