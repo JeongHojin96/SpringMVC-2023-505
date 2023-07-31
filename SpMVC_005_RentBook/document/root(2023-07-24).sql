@@ -73,4 +73,10 @@ left join tbl_members M
 left join tbl_books B
 	on R.rent_bcode = B.b_code;
     
-SELECT * FROM tbl_books LIMIT 10 OFFSET 10
+SELECT * FROM tbl_books LIMIT 10 OFFSET 0;
+
+select count(8) from tbl_books
+where
+b_name like concat('%', '부자', '%') or
+b_name like concat('%', '행복', '%') or
+b_name like concat('%', '부동산', '%')
