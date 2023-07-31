@@ -57,35 +57,21 @@ public class ReviewController {
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String insert(
 			@ModelAttribute("WRITE") BoardDto boardDto,
-			@RequestParam(value = "b_file") MultipartFile b_file,
 			MultipartHttpServletRequest b_images, Model model) {
 
-		log.debug("사용자이름 : {}", boardDto.getB_nickname());
-		log.debug(b_file.getOriginalFilename());
-
-		String fileName = null;
 		try {
-			if (!b_file.getOriginalFilename().isEmpty()) {
-				fileName = fileService.fileUp(b_file);
-				log.debug("파일 {}",fileName);
-				boardDto.setB_image(fileName);
-				
-				log.debug("파일 {}",boardDto);
-			}
-			int result = boardService.insert(boardDto);
-			log.debug("새로생성된 PK : {}", boardDto.getB_seq());
 
 			if (b_images.getFile("b_images").getSize() > 0) {
 				List<FileDto> files = fileService.filesUp(b_images);
-				fileDao.insertfile(files, boardDto.getB_seq()); // , bbsDto.getB_seq());
+				fileDao.insertfile(files, boardDto.getB_seq());
 			}
+			int result = boardService.insert(boardDto);
 			return "redirect:/review";
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			String message = e.getMessage();
 			model.addAttribute("MESSAGE", message);
-			log.debug("파일을 업로드 할수 없음 오류 발생!!");
-			return "redirect:/write?error=FILE_UP_ERROR";
+			return "review/write";
 		}
 
 	}
@@ -124,19 +110,15 @@ public class ReviewController {
 
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("b_seq") String bseq,
-			@RequestParam(value = "b_file") MultipartFile b_file,
 			MultipartHttpServletRequest b_images, @ModelAttribute("WRITE") BoardDto boardDto, Model model) {
 		String fileName = null;
 		try {
-			if (!b_file.getOriginalFilename().isEmpty()) {
-				fileName = fileService.fileUp(b_file);
-				boardDto.setB_image(fileName);
-			}
 			int result = boardService.update(boardDto);
 			if (b_images.getFile("b_images").getSize() > 0) {
 				List<FileDto> files = fileService.filesUp(b_images);
 				fileDao.insertfile(files, boardDto.getB_seq());// , bbsDto.getB_seq());
 			}
+			return "redirect:/review/{b_seq}/detail";
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,7 +126,6 @@ public class ReviewController {
 			model.addAttribute("MESSAGE", message);
 			return "review/write";
 		}
-		return "redirect:/review/{b_seq}/detail";
 	}
 
 	@RequestMapping(value = "/{b_seq}/delete", method = RequestMethod.GET)

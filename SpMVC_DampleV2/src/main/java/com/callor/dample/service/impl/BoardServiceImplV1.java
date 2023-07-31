@@ -24,7 +24,7 @@ public class BoardServiceImplV1 implements BoardService {
 
 	@Override
 	public int insert(BoardDto boardDto) throws Exception {
-		if( boardDto.getB_title() == "" || boardDto.getB_content() == "" || boardDto.getB_nickname() == "" || boardDto.getB_password() == "") {
+		if( boardDto.getB_title().isBlank() || boardDto.getB_content().isBlank() || boardDto.getB_nickname().isBlank()  || boardDto.getB_password().isBlank()) {
 			throw new Exception("NO");
 		}
 		return boardDao.insert(boardDto);
@@ -40,7 +40,9 @@ public class BoardServiceImplV1 implements BoardService {
 	public int update(BoardDto boardDto) throws Exception {
 		String getpw = boardDto.getB_password();
 		long bseq = boardDto.getB_seq();
-		
+		if( boardDto.getB_title().isBlank() || boardDto.getB_content().isBlank() || boardDto.getB_nickname().isBlank()  || boardDto.getB_password().isBlank()) {
+			throw new Exception("NO");
+		}
 		if (getpw == "") {
 			throw new Exception("NONE");
 		} else if(!boardDao.findPW(bseq).getB_password().equals(getpw)) {

@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
- <mapper namespace="com.callor.rent.dao.BookDao">
+ <mapper namespace="com.callor.file.dao.BBsDao">
  
-	<select id="selectSearchCount">
+	<select id="createtable">
 		select count(*) from tbl_books
 		where
 			<foreach collection="list" item="S" separator=" OR ">

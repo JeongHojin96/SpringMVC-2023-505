@@ -1,17 +1,24 @@
-create database boardtestdb;
-use boardtestdb;
+create database boarddb;
+use boarddb;
 
-create table tbl_boardtest(
+create table tbl_board(
 	b_seq bigint not null primary key auto_increment,
     b_title varchar(125) not null,
     b_content varchar(1000) not null,
-    b_icode varchar(125),
     b_nickname varchar(125),
     b_password varchar(125) not null,
     b_ccode varchar(6) not null,
     b_date varchar(10) not null,
-    b_viewcount bigint
+    b_viewcount bigint,
+    b_image varchar(125)
 );
+
+create table tbl_file(
+ i_seq	bigint not null primary key auto_increment,
+ i_bseq bigint,
+ i_originalName VARCHAR(125),
+ i_uploadName VARCHAR(125)
+    )
 
 create table tbl_backuptest(
 	b_seq bigint not null primary key auto_increment,
