@@ -18,7 +18,9 @@
 	<div><strong>조회수 : </strong>${WRITE.b_viewcount}</div>
 	
 	<div><strong>내용 : </strong>${WRITE.b_content}</div>
-	
+	<c:if test="${not empty BBS.b_image}">
+		<img src="${rootPath}/files/${WRITE.b_image}" width="200px" /> 
+	</c:if>
 	<c:if test="${not empty FILES }">
 		<div class="image_list">
 			<c:forEach items="${FILES}" var="FILE">

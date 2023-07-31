@@ -67,7 +67,10 @@ public class ReviewController {
 		try {
 			if (!b_file.getOriginalFilename().isEmpty()) {
 				fileName = fileService.fileUp(b_file);
-				boardDto().setB_image(fileName);
+				log.debug("파일 {}",fileName);
+				boardDto.setB_image(fileName);
+				
+				log.debug("파일 {}",boardDto);
 			}
 			int result = boardService.insert(boardDto);
 			log.debug("새로생성된 PK : {}", boardDto.getB_seq());
@@ -121,16 +124,13 @@ public class ReviewController {
 
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("b_seq") String bseq,
-			// 싱글파일 업로드용
 			@RequestParam(value = "b_file") MultipartFile b_file,
-			// 멀티파일 업로드용
-			// @ReqeustParam 부착 금지 400 오류 발생
 			MultipartHttpServletRequest b_images, @ModelAttribute("WRITE") BoardDto boardDto, Model model) {
 		String fileName = null;
 		try {
 			if (!b_file.getOriginalFilename().isEmpty()) {
 				fileName = fileService.fileUp(b_file);
-				boardDto().setB_image(fileName);
+				boardDto.setB_image(fileName);
 			}
 			int result = boardService.update(boardDto);
 			if (b_images.getFile("b_images").getSize() > 0) {
