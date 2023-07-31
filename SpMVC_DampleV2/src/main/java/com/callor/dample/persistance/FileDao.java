@@ -1,0 +1,27 @@
+package com.callor.dample.persistance;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import com.callor.dample.model.BoardDto;
+import com.callor.dample.model.FileDto;
+
+public interface FileDao {
+	
+	public int insertfile(@Param("list") List<FileDto> files, @Param("b_seq") long b_seq);
+
+	// 게시판과 연결할때 사용할 method
+	@Select("SELECT * FROM tbl_file WHERE i_bseq = #{b_seq}")
+	public List<FileDto> findByBSeq(long b_seq);
+
+	@Select("SELECT * FROM tbl_file WHERE i_seq = #{id}")
+	public FileDto findByid(long id);
+
+	@Delete("DELETE FROM tbl_file WHERE i_seq = #{seqNum}")
+	public int deletefile(long seqNum);
+	
+	public int updatefile(@Param("list") List<FileDto> files, @Param("b_seq") long b_seq);
+}

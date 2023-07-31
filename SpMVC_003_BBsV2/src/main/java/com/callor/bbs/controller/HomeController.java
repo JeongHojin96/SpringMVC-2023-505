@@ -110,10 +110,7 @@ public class HomeController {
 		
 		// 멀티파일 업로드용
 		// @ReqeustParam 부착 금지 400 오류 발생
-		MultipartHttpServletRequest b_images,
-		
-		Model model
-		) {
+		MultipartHttpServletRequest b_images, Model model) {
 		
 		log.debug("사용자이름 : {}",bbsDto.getB_username());
 		log.debug(b_file.getOriginalFilename());

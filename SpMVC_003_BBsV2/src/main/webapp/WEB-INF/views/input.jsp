@@ -28,7 +28,7 @@
 		<div>
 			<label>대표 이미지</label>
 			<input name="b_file" type="file"  
-				accept="image/*,audio/*,video/*"/>
+				accept="image/*"/>
 		</div>
 		<div>
 			<label>이미지 리스트</label>
