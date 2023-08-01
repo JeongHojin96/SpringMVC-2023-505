@@ -12,7 +12,8 @@
 <body>
 	<h1>게시글 ${STATE == 'UPDATE' ? '수정' : '작성' }</h1>
 
-	<f:form modelAttribute="WRITE" method="POST" enctype="multipart/form-data">
+	<f:form modelAttribute="WRITE" method="POST"
+		enctype="multipart/form-data">
 		<label>게시판선택</label>
 		<select name="b_ccode">
 			<option value="리뷰" selected>리뷰</option>
@@ -30,12 +31,10 @@
 			<f:input path="b_content" />
 		</div>
 		<div>
-			<label>이미지</label>
-			<input name="b_images" type="file"  
-				multiple="multiple"
-				accept="image/*" />
+			<label>이미지</label> <input name="b_images" type="file"
+				multiple="multiple" accept="image/*" />
 		</div>
-	
+
 		<div>
 			<label>작성자</label>
 			<f:input path="b_nickname" />
@@ -45,7 +44,7 @@
 			<f:input path="b_password" />
 		</div>
 		<c:if test="${MESSAGE == 'NO' }">
-			<h3>* 모든 내용을 작성해주세요.</h3>
+			<h3>* 모든내용을 작성해주세요.</h3>
 		</c:if>
 		<c:if test="${MESSAGE == 'NONE' }">
 			<h3>* 비밀번호를 입력해주세요.</h3>
