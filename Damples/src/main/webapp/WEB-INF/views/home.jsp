@@ -75,8 +75,15 @@
 		<%@ include file="/WEB-INF/views/tour/map.jsp"%>
 		<%@ include file="/WEB-INF/views/tour/event.jsp"%>
 		<%@ include file="/WEB-INF/views/tour/main_tourlist.jsp"%>
+<<<<<<< HEAD
 
 
+=======
+		<div class="scroll">
+			<img class="img" src="${rootPath}/static/images/화살표.png" width="50px" />
+			<button class="scroll button">TOP!</button>
+		</div>
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 	</div>
 </body>
 

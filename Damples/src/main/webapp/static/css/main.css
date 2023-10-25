@@ -86,9 +86,13 @@ body {
   height: 100%;
   background-color: #1d9042;
 }
+<<<<<<< HEAD
 .head:hover {
   cursor: pointer;
 }
+=======
+
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 header {
   color: white;
   font-family: "SBAggroB";
@@ -112,6 +116,7 @@ header h1 {
   border-radius: 10px;
   padding: 25px;
   display: flex;
+<<<<<<< HEAD
   flex-wrap: wrap;
 }
 
@@ -157,3 +162,26 @@ header h1 {
 input#search::placeholder {
   color: white;
 }
+=======
+  flex-wrap: wrap;  
+}
+
+.img {
+  display: none;
+}
+.scroll.button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #1d9042;
+  color: white;
+  font-weight: bold;
+}
+.scroll:hover {
+  cursor: pointer;  
+}
+.scroll:hover .img  {
+  display: block;
+}
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d

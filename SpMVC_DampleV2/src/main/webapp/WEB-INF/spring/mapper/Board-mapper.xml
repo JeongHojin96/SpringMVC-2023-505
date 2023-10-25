@@ -30,6 +30,13 @@
 		where b_seq = #{b_seq}
 	</update>
 	
+	<update id="updateImg" parameterType="BoardDto">
+		update tbl_board set
+		b_image = #{b_image}
+		where b_seq = #{b_seq}
+			
+	</update>
+	
 	<insert id="countup" parameterType="BoardDto">
 		update tbl_board set
 			b_viewcount = b_viewcount + 1
@@ -40,6 +47,15 @@
 		DELETE FROM tbl_board WHERE b_seq = #{b_seq}
 	</delete>
 	
+ 	
+ 	<select id="selectSearchPage">
+ 		select * from tbl_board
+		where
+			<foreach collection="list" item="S" separator=" OR ">
+				b_content LIKE CONCAT('%', #{S} , '%')	
+			</foreach>
+			LIMIT #{limit} OFFSET #{offset}
+ 	</select> 	
 
 
 </mapper>

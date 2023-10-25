@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.callor.dample.config.QualifierConfig;
 import com.callor.dample.model.BoardDto;
 import com.callor.dample.model.FileDto;
-import com.callor.dample.persistance.BoardDao;
 import com.callor.dample.persistance.FileDao;
 import com.callor.dample.service.BoardService;
 import com.callor.dample.service.FileService;
@@ -30,48 +28,62 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/review")
 public class ReviewController {
 
+
 	protected final BoardService boardService;
 	protected final FileService fileService;
 
 	private final FileDao fileDao;
 
-	public ReviewController(BoardService boardService,
-			@Qualifier(QualifierConfig.SERVICE.FILE_V2) FileService fileService, FileDao fileDao) {
+	
+	public ReviewController(BoardService boardService, 
+			@Qualifier(QualifierConfig.SERVICE.FILE_V2)	FileService fileService, FileDao fileDao) {
 		this.boardService = boardService;
 		this.fileService = fileService;
 		this.fileDao = fileDao;
 	}
 
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
-	public String home(Model model) {
-		List<BoardDto> boardList = boardService.selectAll();
+	public String home(FileDto fileDto, BoardDto boardDto,
+			@RequestParam(name = "page", required = false, defaultValue = "1") String page,
+			@RequestParam(name = "search", required = false, defaultValue = "-1") String search,
+			Model model) {
+		
+		List<BoardDto> boardList = boardService.selectCategory("리뷰");
 		model.addAttribute("WRITES", boardList);
+		
+		if (search.equals("-1")) {
+			boardService.selectPage(page, model);
+		} else {
+			boardService.selectPage(page, model, search);
+		}
+		model.addAttribute("SEARCH",search);
+		
+		
 		return "review/home";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String insert(@ModelAttribute("WRITE") BoardDto boardDto) {
-		return "review/write";
+		return "board/write";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String insert(
 			@ModelAttribute("WRITE") BoardDto boardDto,
 			MultipartHttpServletRequest b_images, Model model) {
-
 		try {
-
+			int result = boardService.insert(boardDto);
 			if (b_images.getFile("b_images").getSize() > 0) {
 				List<FileDto> files = fileService.filesUp(b_images);
 				fileDao.insertfile(files, boardDto.getB_seq());
+				int ff = boardService.updateImg(boardDto);
 			}
-			int result = boardService.insert(boardDto);
 			return "redirect:/review";
 		} catch (Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 			String message = e.getMessage();
 			model.addAttribute("MESSAGE", message);
-			return "review/write";
+			return "board/write";
 		}
 
 	}
@@ -82,30 +94,17 @@ public class ReviewController {
 		boardDto = boardService.findBySeq(bseq);
 		model.addAttribute("WRITE", boardDto);
 		List<FileDto> files = fileDao.findByBSeq(boardDto.getB_seq());
-		model.addAttribute("BBS", boardDto);
 		model.addAttribute("FILES", files);
 		return "review/detail";
 	}
 
-	@RequestMapping(value = "/image_delete", method = RequestMethod.GET)
-	public String image_delete(String seq) {
-
-		/*
-		 * 파일정보를 SELECT 하고 물리적 파일을 삭제하고 파일정보 데이터 삭제
-		 */
-		long seqNum = Long.valueOf(seq);
-		FileDto fileDto = fileDao.findByid(seqNum);
-		fileService.delete(fileDto.getI_uploadName());
-		int result = fileDao.deletefile(seqNum);
-		return "redirect:/review/detail?seq=" + fileDto.getI_bseq();
-	}
 
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.GET)
 	public String update(@PathVariable("b_seq") String bseq, Model model) {
 		BoardDto boardDto = boardService.findBySeq(bseq);
 		model.addAttribute("WRITE", boardDto);
 		model.addAttribute("STATE", "UPDATE");
-		return "review/write";
+		return "board/write";
 	}
 
 	@RequestMapping(value = "/{b_seq}/update", method = RequestMethod.POST)
@@ -116,7 +115,7 @@ public class ReviewController {
 			int result = boardService.update(boardDto);
 			if (b_images.getFile("b_images").getSize() > 0) {
 				List<FileDto> files = fileService.filesUp(b_images);
-				fileDao.insertfile(files, boardDto.getB_seq());// , bbsDto.getB_seq());
+				fileDao.insertfile(files, boardDto.getB_seq());
 			}
 			return "redirect:/review/{b_seq}/detail";
 
@@ -124,13 +123,13 @@ public class ReviewController {
 			e.printStackTrace();
 			String message = e.getMessage();
 			model.addAttribute("MESSAGE", message);
-			return "review/write";
+			return "board/write";
 		}
 	}
 
 	@RequestMapping(value = "/{b_seq}/delete", method = RequestMethod.GET)
 	public String delete(@PathVariable("b_seq") String bseq) {
-		return "review/delete";
+		return "board/delete";
 	}
 
 	@RequestMapping(value = "/{b_seq}/delete", method = RequestMethod.POST)
@@ -141,8 +140,13 @@ public class ReviewController {
 			e.printStackTrace();
 			String message = e.getMessage();
 			model.addAttribute("MESSAGE", message);
-			return "review/delete";
+			return "board/delete";
 		}
+		
+		long seqNum = Long.valueOf(bseq);
+		FileDto fileDto = fileDao.findByid(seqNum);
+		int result = fileDao.deletefile(seqNum);
+		
 		return "redirect:/review";
 	}
 
@@ -156,5 +160,4 @@ public class ReviewController {
 
 		return boardDto;
 	}
-
 }

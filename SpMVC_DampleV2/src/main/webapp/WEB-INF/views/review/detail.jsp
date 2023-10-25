@@ -18,20 +18,13 @@
 	<div><strong>조회수 : </strong>${WRITE.b_viewcount}</div>
 	
 	<div><strong>내용 : </strong>${WRITE.b_content}</div>
-	<c:if test="${not empty BBS.b_image}">
-		<img src="${rootPath}/files/${WRITE.b_image}" width="200px" /> 
-	</c:if>
 	<c:if test="${not empty FILES }">
 		<div class="image_list">
 			<c:forEach items="${FILES}" var="FILE">
 				<div class="image">
-					<img src="${rootPath}/files/${FILE.i_uploadName}" 
-						width="200px">
+					<img src="${rootPath}/files/${FILE.i_uploadName}"  width="200px">
 					<span data-seq="${FILE.i_seq}" 
-							data-filename="${FILE.i_originalName }">
-							<!-- 
-							 &times;
-							 -->
+						  data-filename="${FILE.i_originalName}">
 					</span>
 				</div>
 			</c:forEach>

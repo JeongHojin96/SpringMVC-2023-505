@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
   // 스크롤이란 클래스를 top_button 변수에 담음
   const top_button = document.querySelector(".scroll");
   // top버튼 누르면 위로 올라감
@@ -18,5 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       top_button.style.display = "block";
     }
+=======
+  var scrollButton = document.querySelector(".scroll");
+  scrollButton.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
   });
 });

@@ -3,9 +3,13 @@
 .main.event {
   display: inline-block;
 }
+<<<<<<< HEAD
 .event_title:hover {
   cursor: pointer;
 }
+=======
+
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 .main.event.news p.event_title {
   font-family: "GangwonEduPowerExtraBoldA";
   color: #0c5c00;
@@ -14,7 +18,11 @@
 
 .main.event.news div.line {
   height: 4px;
+<<<<<<< HEAD
   margin-bottom: 9px;
+=======
+  margin-bottom: 9px
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 }
 
 .main.event.news ul {
@@ -84,9 +92,12 @@
   border: none;
   width: 20%;
 }
+<<<<<<< HEAD
 .btn_search:hover {
   cursor: pointer;
 }
+=======
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 .card {
   font-size: 20px;
   color: #000;
@@ -135,11 +146,16 @@
   color: #0c5c00;
   float: left;
   padding: 0px 8px;
+<<<<<<< HEAD
   transition: background-color 0.3s;
+=======
+  transition: background-color .3s;
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
   font-size: 25px;
 }
 
 .main.event.news a.active {
+<<<<<<< HEAD
   background-color: #4caf50; /* 현재 페이지의 배경 색 */
   color: white; /* 현재 페이지의 텍스트 색 */
 }
@@ -147,3 +163,10 @@
 .main.event.news a:hover:not(.active) {
   background-color: #ddd;
 }
+=======
+  background-color: #4CAF50; /* 현재 페이지의 배경 색 */
+  color: white; /* 현재 페이지의 텍스트 색 */
+}
+
+.main.event.news a:hover:not(.active) {background-color: #ddd;}
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d

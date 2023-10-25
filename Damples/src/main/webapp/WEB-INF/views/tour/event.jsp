@@ -4,7 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="main event">
 	<div class="main event news">
+<<<<<<< HEAD
 		<p class="event_title" onclick="location.href='${rootPath}/calendar'">이달의 행사</p>
+=======
+		<p class="event_title">이달의 행사</p>
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 		<div class="line"></div>
 		<c:forEach items="${EVENT_LIST}" var="event" begin="0" end="2">
 			<ul>

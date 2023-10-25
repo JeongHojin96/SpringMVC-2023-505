@@ -18,6 +18,7 @@
 		<ul>
 			<li class="home"><a href="${rootPath}/">Home</a></li>
 			<li class="intro"><a href="${rootPath}/intro">소개</a></li>
+			<li class="news"><a href="${rootPath}/news">소식</a></li>
 			<li class="course"><a href="${rootPath}/course">코스추천</a></li>
 			<li class="review"><a href="${rootPath}/review">리뷰</a></li>
 		</ul>

@@ -25,6 +25,10 @@ function formatDate(year, month, date) {
   return year + "-" + formattedMonth + "-" + formattedDate;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
 function displayCalendar(year, month, allMonthEvents) {
   var calendarBody = document.getElementById("calendarBody");
   var currentMonthYear = document.getElementById("currentMonthYear");
@@ -85,12 +89,17 @@ function displayCalendar(year, month, allMonthEvents) {
         for (var k = 0; k < eventsForDate.length; k++) {
           var eventInfo = eventsForDate[k].event_info;
           var eventInfoDiv = document.createElement("div");
+<<<<<<< HEAD
           var toolTipDiv = document.createElement("div");
           toolTipDiv.className = "tooltip";
           eventInfoDiv.textContent = eventInfo;
           toolTipDiv.textContent = eventInfo;
           eventDiv.appendChild(eventInfoDiv);
           eventDiv.appendChild(toolTipDiv);
+=======
+          eventInfoDiv.textContent = eventInfo;
+          eventDiv.appendChild(eventInfoDiv);
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
           // console.log("Event Info:", eventInfo);
         }
         // 셀에 하나의 div로 이벤트 추가
@@ -113,6 +122,10 @@ function displayCalendar(year, month, allMonthEvents) {
     if (hasDates) {
       calendarBody.appendChild(row);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bcf1cb020956732b4bde1bf0017d6a376393a1d
   }
 }
 

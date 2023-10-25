@@ -19,8 +19,11 @@ public interface FileDao {
 
 	@Select("SELECT * FROM tbl_file WHERE i_seq = #{id}")
 	public FileDto findByid(long id);
+	
+	@Select("select i_uploadName from tbl_file  where i_bseq = #{bseq} limit 1 ")
+	public FileDto findByBseq(long bseq);
 
-	@Delete("DELETE FROM tbl_file WHERE i_seq = #{seqNum}")
+	@Delete("DELETE FROM tbl_file WHERE i_bseq = #{seqNum}")
 	public int deletefile(long seqNum);
 	
 	public int updatefile(@Param("list") List<FileDto> files, @Param("b_seq") long b_seq);

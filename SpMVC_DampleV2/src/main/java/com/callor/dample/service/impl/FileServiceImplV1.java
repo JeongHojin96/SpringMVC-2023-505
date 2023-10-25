@@ -25,9 +25,11 @@ public class FileServiceImplV1 implements FileService {
 	// 서버의 폴더 등 자원(Resource)에 접근할때 사용할 객체
 	protected final ResourceLoader resourceLoader;
 	protected final String filePath;
+	protected final String fileUpPath;
 	public FileServiceImplV1(ResourceLoader resource) {
 		this.resourceLoader = resource;
 		this.filePath = "/files";
+		this.fileUpPath = "/app/upload";
 	}
 
 	@Override
@@ -78,7 +80,18 @@ public class FileServiceImplV1 implements FileService {
 
 	@Override
 	public String delete(String fileName) {
-		// TODO Auto-generated method stub
+
+		if(fileName == null || fileName.isBlank()) {
+			return null;
+		}
+		File delFile = new File(fileUpPath, fileName);
+		// 파일이 있는지 확인
+		if(delFile.exists()) {
+			// 파일 삭제
+			if(delFile.delete()) {
+				return "OK";
+			}
+		}
 		return null;
 	}
 
